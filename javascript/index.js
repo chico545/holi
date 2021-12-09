@@ -166,7 +166,7 @@ function actingChallenge() {
     var challenge = new ActingChallenge();
     challenge.generateDescription();
     challenge.rankPerformances();
-    challengeScreen.createButton("Proceed", "queensPerformances()", "button1");
+    queensPerformances();
     actingChallengeCounter++;
     isDesignChallenge = false;
     episodeChallenges.push("Acting");
@@ -211,7 +211,7 @@ function comedyChallenge() {
     var challenge = new ComedyChallenge();
     challenge.generateDescription();
     challenge.rankPerformances();
-    challengeScreen.createButton("Proceed", "queensPerformances()", "button1");
+    queensPerformances();
     comedyChallengeCounter++;
     isDesignChallenge = false;
     episodeChallenges.push("Comedy");
@@ -288,9 +288,9 @@ function designChallenge() {
     var challenge = new DesignChallenge();
     challenge.generateDescription();
     challenge.rankPerformances();
-    challengeScreen.createButton("Proceed", "queensPerformances()", "button1");
-    designChallengeCounter++;
     isDesignChallenge = true;
+    queensPerformances();
+    designChallengeCounter++;
     if (currentCast.length == 6 && makeoverCounter == false && team == false && currentCast != firstCast && currentCast != secondCast) {
         episodeChallenges.push("Makeover");
         makeoverCounter = true;
@@ -329,7 +329,7 @@ function improvChallenge() {
     var challenge = new ImprovChallenge();
     challenge.generateDescription();
     challenge.rankPerformances();
-    challengeScreen.createButton("Proceed", "queensPerformances()", "button1");
+    queensPerformances();
     improvChallengeCounter++;
     isDesignChallenge = false;
     episodeChallenges.push("Improv");
@@ -357,7 +357,7 @@ function snatchGame() {
     var challenge = new SnatchGame();
     challenge.generateDescription();
     challenge.rankPerformances();
-    challengeScreen.createButton("Proceed", "queensPerformances()", "button1");
+    queensPerformances();
     isDesignChallenge = false;
     snatchCounter = true;
     episodeChallenges.push("Snatch");
@@ -392,7 +392,7 @@ function rusical() {
     var challenge = new Rusical();
     challenge.generateDescription();
     challenge.rankPerformances();
-    challengeScreen.createButton("Proceed", "queensPerformances()", "button1");
+    queensPerformances();
     isDesignChallenge = false;
     episodeChallenges.push("Rusical");
 }
@@ -445,7 +445,7 @@ function ball() {
     var challenge = new Ball();
     challenge.generateDescription();
     challenge.rankPerformances();
-    challengeScreen.createButton("Proceed", "queensPerformances()", "button1");
+    queensPerformances();
     isDesignChallenge = true;
     ballCounter = true;
     episodeChallenges.push("Ball");
@@ -476,7 +476,7 @@ function rumix() {
     var challenge = new Rumix();
     challenge.generateDescription();
     challenge.rankPerformances();
-    challengeScreen.createButton("Proceed", "queensPerformances()", "button1");
+    queensPerformances();
     isDesignChallenge = false;
     episodeChallenges.push("Rumix");
 }
@@ -501,51 +501,22 @@ function talentshow() {
     var challenge = new TalentShow();
     challenge.generateDescription();
     challenge.rankPerformances();
-    challengeScreen.createButton("Proceed", "queensPerformances()", "button1");
     isDesignChallenge = true;
+    queensPerformances();
     episodeChallenges.push("Talent");
 }
 //performance:
 function queensPerformances() {
-    //remove description button:
-    var button1 = document.querySelector("button#button1");
-    button1.remove();
     var performanceScreen = new Scene();
     performanceScreen.createHorizontalLine();
     performanceScreen.createBigText("Queens' performances...");
-    performanceScreen.createBold("", "excellent");
-    performanceScreen.createBold("", "good");
-    performanceScreen.createBold("", "ok");
-    performanceScreen.createBold("", "bad");
-    performanceScreen.createBold("", "horrible");
-    var excellent = document.querySelector("b#excellent");
-    var good = document.querySelector("b#good");
-    var ok = document.querySelector("b#ok");
-    var bad = document.querySelector("b#bad");
-    var horrible = document.querySelector("b#horrible");
-    for (var i = 0; i < currentCast.length; i++) {
-        if (currentCast[i].performanceScore < 6)
-            excellent.innerHTML += currentCast[i].getName() + ", ";
-        else if (currentCast[i].performanceScore >= 6 && currentCast[i].performanceScore < 16)
-            good.innerHTML += currentCast[i].getName() + ", ";
-        else if (currentCast[i].performanceScore >= 16 && currentCast[i].performanceScore < 26)
-            ok.innerHTML += currentCast[i].getName() + ", ";
-        else if (currentCast[i].performanceScore >= 26 && currentCast[i].performanceScore < 31)
-            bad.innerHTML += currentCast[i].getName() + ", ";
-        else if (currentCast[i].performanceScore >= 31 && currentCast[i].performanceScore < 36)
-            horrible.innerHTML += currentCast[i].getName() + ", ";
-    }
-    if (excellent.innerHTML != '')
-        excellent.innerHTML += "slayed the challenge!";
-    if (good.innerHTML != '')
-        good.innerHTML += "did great!";
-    if (ok.innerHTML != '')
-        ok.innerHTML += "did ok.";
-    if (bad.innerHTML != '')
-        bad.innerHTML += "did bad...";
-    if (horrible.innerHTML != '')
-        horrible.innerHTML += "flopped the challenge...";
-    if (isDesignChallenge)
+    var slay = currentCast.filter(function (queen) { return queen.performanceScore < 6; });
+    var great = currentCast.filter(function (queen) { return queen.performanceScore >= 6 && queen.performanceScore < 16; });
+    var good = currentCast.filter(function (queen) { return queen.performanceScore >= 16 && queen.performanceScore < 26; });
+    var bad = currentCast.filter(function (queen) { return queen.performanceScore >= 26 && queen.performanceScore < 31; });
+    var flop = currentCast.filter(function (queen) { return queen.performanceScore >= 31 && queen.performanceScore < 36; });
+    createPerformanceDesc(slay, great, good, bad, flop);
+    if (isDesignChallenge == true || episodeChallenges[episodeChallenges.length - 1] == "Design")
         performanceScreen.createButton("Proceed", "judging()");
     else
         performanceScreen.createButton("Proceed", "runway()", "button2");
@@ -586,25 +557,13 @@ function runway() {
         runwayScreen.createParagraph("The theme is: " + desc[randomNumber(0, 21)]);
     else if (currentCast.length == 3 && top3 || currentCast.length == 5 && top4 || currentCast.length == 4 && all_stars || currentCast.length == 2 && team)
         runwayScreen.createParagraph("The theme is... best drag!");
-    for (var i = 0; i < currentCast.length; i++) {
+    for (var i = 0; i < currentCast.length; i++)
         currentCast[i].getRunway();
-        if (currentCast[i].runwayScore < 6) {
-            runwayScreen.createParagraph(currentCast[i].getName() + " had an amazing runway!");
-            currentCast[i].runwayScore = 10;
-        }
-        else if (currentCast[i].runwayScore < 16 && currentCast[i].runwayScore >= 6) {
-            runwayScreen.createParagraph(currentCast[i].getName() + " had a great runway!");
-            currentCast[i].runwayScore = 5;
-        }
-        else if (currentCast[i].runwayScore < 26 && currentCast[i].runwayScore >= 16) {
-            runwayScreen.createParagraph(currentCast[i].getName() + " had an ok runway.");
-            currentCast[i].runwayScore = 0;
-        }
-        else {
-            runwayScreen.createParagraph(currentCast[i].getName() + " had a bad runway...");
-            currentCast[i].runwayScore = -3;
-        }
-    }
+    var slay = currentCast.filter(function (queen) { return queen.runwayScore < 6; });
+    var great = currentCast.filter(function (queen) { return queen.runwayScore >= 6 && queen.runwayScore < 16; });
+    var good = currentCast.filter(function (queen) { return queen.runwayScore >= 16 && queen.runwayScore < 26; });
+    var bad = currentCast.filter(function (queen) { return queen.runwayScore >= 26; });
+    createRunwayDesc(slay, great, good, bad);
     if (currentCast.length > 4)
         runwayScreen.createButton("Proceed", "judging()");
     else if (currentCast.length == 4 && (top3 || lipsync_assassin || team))
@@ -639,7 +598,7 @@ function createChallenge(challenges, miniChallengeScreen) {
     else if (currentCast.length == totalCastSize - 4 && (top4 || (all_stars || lipsync_assassin) && randomNumber(0, 100) < 30) && !ballCounter || currentCast.length == 3 && team)
         miniChallengeScreen.createButton("Proceed", "ball()");
     //rusical
-    else if (currentCast.length > 6 && randomNumber(0, 20) >= 15 && !rusicalCounter || currentCast.length > 5 && randomNumber(0, 20) == 20 && team && rusicalCounter == false)
+    else if (currentCast.length > 6 && randomNumber(0, 20) == 20 && !rusicalCounter || currentCast.length > 5 && randomNumber(0, 20) == 20 && team && rusicalCounter == false)
         miniChallengeScreen.createButton("Proceed", "rusical()");
     //makeover
     else if (currentCast.length == 6 && (top3 || top4) && makeoverCounter == false || currentCast.length == 6 && randomNumber(0, 15) == 15 && (all_stars || lipsync_assassin) && makeoverCounter == false)
