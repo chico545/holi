@@ -1019,6 +1019,8 @@ function reSimulate() {
     secondCast = [];
     premiereCounter = 0;
     episodeCount = 0;
+    onFinale = false;
+    onTop4Finale = false;
     totalCastSize = currentCast.length;
     //clean track records
     for (var i = 0; i < currentCast.length; i++) {
@@ -1056,6 +1058,9 @@ function reSimulate() {
 var firstLS = [];
 var secondLS = [];
 var finalLS = [];
+var onFinale = false;
+var onTop4Finale = false;
+;
 function finaleLS() {
     var screen = new Scene();
     screen.clean();
@@ -1107,6 +1112,8 @@ function finaleLipSyncs() {
     screen.createButton("Proceed", "finalLipSync()");
 }
 function finalLipSync() {
+    onTop4Finale = true;
+    onFinale = true;
     var screen = new Scene();
     screen.clean();
     screen.createHeader("The end...");
@@ -1139,6 +1146,7 @@ function finale() {
     var screen = new Scene();
     screen.clean();
     screen.createHeader("The grande finale!");
+    for (var i = 0; i < currentCast.length; i++)
     screen.createParagraph("Our Top 3 will participate in a music video for RuPaul's newest single!");
     screen.createButton("Proceed", "runway()", "button2");
 }
@@ -1922,7 +1930,7 @@ function startSimulation(challenge) {
             lipsync_assassin = true;
             allQueens = allQueens.filter(function (queen) { return queen.getLipSyncStat() >= 8; });
             allQueens = allQueens.filter(function (queen) { return currentCast.indexOf(queen) == -1; });
-            allQueensCopy = __spreadArray([], allQueens);
+            allQueensCopy = __spreadArray([], allQueens, true);
         }
         if (select2.options[select2.selectedIndex].value == "s6-premiere")
             s6Premiere = true;
@@ -2713,7 +2721,7 @@ var Queen = /** @class */ (function () {
         this.lipsyncScore = this._calculateScores(0, this._lipsyncStat, this.unfavoritism) + this.favoritism;
     };
     Queen.prototype.getASLipsync = function () {
-        this.lipsyncScore = this._calculateScores(0, this._lipsyncStat, 0);
+        this.lipsyncScore = this._calculateScores(0, this._lipsyncStat);
     };
     Queen.prototype.addToTrackRecord = function (placement) {
         this.trackRecord.push(placement);
@@ -3161,7 +3169,7 @@ function CheckForReturning() {
             return false;
         }
         else {
-            if (randomNumber(0, 100) <= 85 && returningQueen == false && !all_stars && !lipsync_assassin) {
+            if (randomNumber(0, 100) <= 85 && returningQueen == false) {
                 returningQueen = true;
                 return true;
             }
@@ -3208,7 +3216,7 @@ function queenReturnsVote() {
         screen.createBold(eliminatedCast[i].getName() + ": " + eliminatedCast[i].votes.toString() + " votes");
     }
     screen.createHorizontalLine();
-    var queen = __spreadArray([], eliminatedCast).sort(function (a, b) { return b.votes - a.votes; })[0];
+    var queen = __spreadArray([], eliminatedCast, true).sort(function (a, b) { return b.votes - a.votes; })[0];
     screen.createBold(queen.getName() + " returns to the competition!");
     currentCast.push(queen);
     eliminatedCast.splice(eliminatedCast.indexOf(queen), 1);
@@ -3382,14 +3390,15 @@ var Scene = /** @class */ (function () {
         this._MainBlock.innerHTML = '';
     };
     Scene.prototype.createHeader = function (text) {
-        var header = document.createElement("h1");
-        header.innerHTML = text;
-        this._MainBlock.appendChild(header);
+        var title = document.getElementById("MainTitle");
+        title.innerHTML = text;
     };
     Scene.prototype.createBigText = function (text) {
         var big = document.createElement("big");
+        var p = document.createElement("p");
         big.innerHTML = text;
-        this._MainBlock.appendChild(big);
+        p.appendChild(big);
+        this._MainBlock.appendChild(p);
     };
     Scene.prototype.createParagraph = function (text, id) {
         if (id === void 0) { id = ''; }
@@ -3418,6 +3427,13 @@ var Scene = /** @class */ (function () {
     Scene.prototype.createHorizontalLine = function () {
         var hr = document.createElement("hr");
         this._MainBlock.appendChild(hr);
+    };
+        Scene.prototype.createImage = function (source, color) {
+        if (color === void 0) { color = "black"; }
+        var image = document.createElement("img");
+        image.src = source;
+        image.setAttribute("style", "border-color: " + color);
+        this._MainBlock.appendChild(image);
     };
     return Scene;
 }());
@@ -3743,7 +3759,7 @@ var allLsSongs = [
     "See You Again by Miley Cyrus",
     "Spice Up Your Life by Spice Girls"
 ];
-var lsSongs = __spreadArray([], allLsSongs);
+var lsSongs = __spreadArray([], allLsSongs, true);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -3815,7 +3831,7 @@ function teamsScreen() {
         currentCast.splice(currentCast.indexOf(QueenA), 1);
         currentCast.splice(currentCast.indexOf(QueenB), 1);
     }
-    currentCast = __spreadArray([], teamList);
+    currentCast = __spreadArray([], teamList, true);
     totalCastSize = currentCast.length;
     screen.createButton("Proceed", "miniChallenge()");
 }
