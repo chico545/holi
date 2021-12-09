@@ -920,23 +920,14 @@ function newEpisode() {
     topQueens = [];
     bottomQueens = [];
     top2 = [];
+    episodeCount++;
     //queens remaining screen:
     var queensRemainingScreen = new Scene();
+       if (episodeCount == 1 || premiereCounter <= 2 && (s12Premiere || porkchopPremiere || s6Premiere) || team) { 
     queensRemainingScreen.clean();
-    queensRemainingScreen.createHeader("Queens remaining...");
+        queensRemainingScreen.createHeader("Full cast");
     for (var i = 0; i < currentCast.length; i++) {
         queensRemainingScreen.createBold(currentCast[i].getName());
-    }
-     //chaos season
-    if (chaos == true) {
-        for (var i = 0; i < currentCast.length; i++) {
-            currentCast[i]._actingStat = randomNumber(0, 15);
-            currentCast[i]._comedyStat = randomNumber(0, 15);
-            currentCast[i]._danceStat = randomNumber(0, 15);
-            currentCast[i]._designStat = randomNumber(0, 15);
-            currentCast[i]._improvStat = randomNumber(0, 15);
-            currentCast[i]._lipsyncStat = randomNumber(0, 15);
-            currentCast[i]._runwayStat = randomNumber(0, 15);
         }
     else {
         contestantProgress();
