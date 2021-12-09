@@ -975,6 +975,9 @@ function reSimulate() {
     firstCast = [];
     secondCast = [];
     premiereCounter = 0;
+    episodeCount = 0;
+    onFinale = false;
+    onTop4Finale = false;
     totalCastSize = currentCast.length;
     //clean track records
     for (var i = 0; i < currentCast.length; i++) {
@@ -1012,6 +1015,9 @@ function reSimulate() {
 var firstLS = [];
 var secondLS = [];
 var finalLS = [];
+var onFinale = false;
+var onTop4Finale = false;
+;
 function finaleLS() {
     var screen = new Scene();
     screen.clean();
@@ -1150,6 +1156,7 @@ function finaleTeamJudging() {
     screen.createButton("Proceed", "finaleFinale()");
 }
 function finaleFinale() {
+    onFinale = true;
     var screen = new Scene();
     screen.clean();
     screen.createHeader("The end.");
@@ -1334,6 +1341,8 @@ function contestantProgress() {
     }
     trackRecords.appendChild(winner);
     for (var i = 0; i < eliminatedCast.length; i++) {
+    }
+    if (!onFinale) {
         var contestant = document.createElement("tr");
         var name_1 = document.createElement("td");
         name_1.setAttribute("style", "background-color: #f5ebf5; font-weight: bold;  height: 100px;");
@@ -1545,6 +1554,7 @@ function contestantProgress() {
         }
     main.appendChild(centering);
     //main.appendChild(trackRecords);
+       if (onFinale) {
     screen.createButton("Simulate again!", "reSimulate()");
     screen.createHorizontalLine();
     screen.createButton("Back to main page", "location.reload()");
