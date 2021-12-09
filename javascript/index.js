@@ -639,7 +639,7 @@ function createChallenge(challenges, miniChallengeScreen) {
     else if (currentCast.length == totalCastSize - 4 && (top4 || (all_stars || lipsync_assassin) && randomNumber(0, 100) < 30) && !ballCounter || currentCast.length == 3 && team)
         miniChallengeScreen.createButton("Proceed", "ball()");
     //rusical
-    else if (currentCast.length > 6 && randomNumber(0, 20) == 20 && !rusicalCounter || currentCast.length > 5 && randomNumber(0, 20) == 20 && team && rusicalCounter == false)
+    else if (currentCast.length > 6 && randomNumber(0, 20) >= 15 && !rusicalCounter || currentCast.length > 5 && randomNumber(0, 20) == 20 && team && rusicalCounter == false)
         miniChallengeScreen.createButton("Proceed", "rusical()");
     //makeover
     else if (currentCast.length == 6 && (top3 || top4) && makeoverCounter == false || currentCast.length == 6 && randomNumber(0, 15) == 15 && (all_stars || lipsync_assassin) && makeoverCounter == false)
@@ -975,9 +975,6 @@ function reSimulate() {
     firstCast = [];
     secondCast = [];
     premiereCounter = 0;
-    episodeCount = 0;
-    onFinale = false;
-    onTop4Finale = false;
     totalCastSize = currentCast.length;
     //clean track records
     for (var i = 0; i < currentCast.length; i++) {
@@ -1015,9 +1012,6 @@ function reSimulate() {
 var firstLS = [];
 var secondLS = [];
 var finalLS = [];
-var onFinale = false;
-var onTop4Finale = false;
-;
 function finaleLS() {
     var screen = new Scene();
     screen.clean();
@@ -1156,7 +1150,6 @@ function finaleTeamJudging() {
     screen.createButton("Proceed", "finaleFinale()");
 }
 function finaleFinale() {
-    onFinale = true;
     var screen = new Scene();
     screen.clean();
     screen.createHeader("The end.");
@@ -1237,14 +1230,11 @@ function contestantProgress() {
     var winner = document.createElement("tr");
     var name = document.createElement("td");
     name.setAttribute("style", "background-color: #f5ebf5; font-weight: bold; height: 100px;");
-    if (onFinale) {
-        var winnerQueen = void 0;
-        if (!top4)
+    var winnerQueen;
+    if (!top4)
         winnerQueen = currentCast[0];
-        else if (onTop4Finale)
+    else
         winnerQueen = finalLS[0];
-        else
-            winnerQueen = currentCast[0];
     name.innerHTML = winnerQueen.getName();
     winner.appendChild(name);
     if (!custommode) {
@@ -1252,7 +1242,7 @@ function contestantProgress() {
         photow.setAttribute("style", "background: url("+ winnerQueen.getImg() +"); background-size: 106px 106px; background-position: center;");
         winner.appendChild(photow);
     }
-        for (var i = 0; i < winnerQueen.trackRecord.length; i++) {
+    for (var i = 0; i < winnerQueen.trackRecord.length+1; i++) {
         var placement = document.createElement("td");
         placement.innerHTML = winnerQueen.trackRecord[i];
         if (placement.innerHTML == "WIN") {
@@ -1341,8 +1331,6 @@ function contestantProgress() {
     }
     trackRecords.appendChild(winner);
     for (var i = 0; i < eliminatedCast.length; i++) {
-    }
-    if (!onFinale) {
         var contestant = document.createElement("tr");
         var name_1 = document.createElement("td");
         name_1.setAttribute("style", "background-color: #f5ebf5; font-weight: bold;  height: 100px;");
@@ -1554,7 +1542,6 @@ function contestantProgress() {
         }
     main.appendChild(centering);
     //main.appendChild(trackRecords);
-       if (onFinale) {
     screen.createButton("Simulate again!", "reSimulate()");
     screen.createHorizontalLine();
     screen.createButton("Back to main page", "location.reload()");
@@ -2657,8 +2644,9 @@ var rajah = new Queen("Ra'Jah O'Hara", 7, 8, 14, 13, 6, 10, 13, "img/AS6/RaJahOH
 var scarlet = new Queen("Scarlet Envy", 10, 8, 6, 9, 7, 9, 7, "img/AS6/ScarletEnvyAS6Cast.png");
 var shuga = new Queen("Shuga Cain", 8, 7, 7, 5, 7, 10, 7, "img/US11/ShugaCainS11Cast.jpg");
 var silky = new Queen("Silky Nutmeg Ganache", 8, 9, 7, 6, 9, 7, 7, "img/AS6/SilkyNutmegGanacheAS6Cast.png");
+var soju = new Queen("Soju", 3, 4, 3, 4, 3, 3, 3, "img/US11/SojuS11Cast.jpg");
 var yvie = new Queen("Yvie Oddly", 10, 5, 8, 9, 5, 8, 14, "img/US11/YvieOddlyS11Cast.jpg");
-var us_season11 = [akeria, ariel, brooke, honeyd, kahanna, mercedes, ninaw, plastique, rajah, scarlet, shuga, silky, vanessa, yvie];
+var us_season11 = [akeria, ariel, brooke, honeyd, kahanna, mercedes, ninaw, plastique, rajah, scarlet, shuga, silky, soju, vanessa, yvie];
 //SEASON 12
 var aiden = new Queen("Aiden Zhane", 9, 3, 6, 4, 3, 8, 7, "img/US12/AidenZhaneS12Cast.png");
 var brita = new Queen("Brita", 7, 6, 7, 4, 3, 7, 10, "img/US12/BritaS12Cast.png");
@@ -2671,8 +2659,9 @@ var jaida = new Queen("Jaida Essence Hall", 7, 9, 9, 12, 9, 10, 11, "img/US12/Ja
 var jan = new Queen("Jan", 8, 7, 9, 7, 8, 8, 8, "img/AS6/JanAS6Cast.png");
 var nicky = new Queen("Nicky Doll", 4, 4, 7, 10, 3, 10, 5, "img/US12/NickyDollS12Cast.png");
 var rock = new Queen("Rock M. Sakura", 6, 8, 6, 7, 8, 8, 7, "img/US12/RockMSakuraS12Cast.png");
+var sherry = new Queen("Sherry Pie", 10, 10, 7, 6, 10, 8, 8, "img/US12/SherryPieS12Cast.png");
 var widow = new Queen("Widow Von'Du", 10, 9, 12, 8, 10, 8, 15, "img/US12/WidowVonDuS12Cast.png");
-var us_season12 = [aiden, brita, crystal, dahlia, gigi, heidi, jackie, jaida, jan, nicky, rock, widow];
+var us_season12 = [aiden, brita, crystal, dahlia, gigi, heidi, jackie, jaida, jan, nicky, rock, sherry, widow];
 //ALL STARS 5
 var allstars_5 = [alexis, blair, derrick, india, jujubee, mariah, mayhem, miz, ongina, shea];
 //SEASON 13
@@ -2875,8 +2864,8 @@ var allQueens = [
     acid, bob, chichi, cynthia, dax, derrick, kim, laila, naomi, naysha, robbie, thorgy,
     aja, alexism, charlie, eureka, farrah, jaymes, kimora, ninab, peppermint, sasha, shea, trinity, valentina,
     aquaria, asia, blair, dusty, kalorie, kameron, mayhem, miz, monet, monique, vanessa, vixen, yuhua,
-    akeria, ariel, brooke, honeyd, kahanna, mercedes, ninaw, plastique, rajah, scarlet, shuga, silky, yvie,
-    aiden, brita, crystal, dahlia, gigi, heidi, jackie, jaida, jan, nicky, rock, widow,
+    akeria, ariel, brooke, honeyd, kahanna, mercedes, ninaw, plastique, rajah, scarlet, shuga, silky, soju, yvie,
+    aiden, brita, crystal, dahlia, gigi, heidi, jackie, jaida, jan, nicky, rock, sherry, widow,
     denali, elliott, mik, joey, kahmora, kandym, lala, olivia, rose, symone, tamisha, tina, utica,
     alyssaH, angeria, bosco, daya, deja, jasmineK, jorgeous, june, kerri, kornbread, cadmen, maddy, orion, willow,
     baga, blu, cheryl, crystaluk, divina, gothy, scaredy, sumting, viv, vinegar,
