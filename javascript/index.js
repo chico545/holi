@@ -721,7 +721,6 @@ function createRunwayDesc(slay, great, good, bad) {
         badText.innerHTML += "had a bad runway...";
     }
 }
-
 var customCast = [];
 function addQueen() {
     var name = document.getElementById("queenName").value;
@@ -751,17 +750,6 @@ function addQueen() {
     var queen = document.createElement("option");
     queen.text = name;
     list.appendChild(queen);
-    limpiaCampo();
-}
-function limpiaCampo() {
-  document.getElementById("queenName").value = "";
-  document.getElementById("actingStat").value = "";
-  document.getElementById("comedyStat").value = "";
-  document.getElementById("danceStat").value = "";
-  document.getElementById("designStat").value = "";
-  document.getElementById("improvStat").value = "";
-  document.getElementById("runwayStat").value = "";
-  document.getElementById("lipsyncStat").value = "";
 }
 function removeQueen() {
     var list = document.getElementById("cast");
@@ -772,9 +760,7 @@ function removeQueen() {
     }
     list.options[list.selectedIndex].remove();
 }
-var custommode = false;
 function customStartSimulation() {
-    custommode = true;
     if (customCast.length == 0) {
         window.alert("Your cast is empty!");
         return;
@@ -878,7 +864,7 @@ function doublePremiere() {
         newEpisode();
     }
     else if (premiereCounter == 2) {
-        currentCast = __spreadArray(__spreadArray([], firstCast), secondCast);
+        currentCast = __spreadArray(__spreadArray([], firstCast, true), secondCast, true);
         premiereCounter++;
         newEpisode();
     }
