@@ -524,9 +524,10 @@ function queensPerformances() {
 //runway:
 function runway() {
     var runwayScreen = new Scene();
+    runwayScreen.createHorizontalLine();
     var button2 = document.querySelector("button#button2");
     button2.remove();
-    runwayScreen.createHeader("Runway!");
+    runwayScreen.createBigText("Runway!");
     var desc;
     (function (desc) {
         desc[desc["feathers."] = 0] = "feathers.";
@@ -578,6 +579,7 @@ function runway() {
         runwayScreen.createButton("Proceed", "finaleTeamJudging()");
 }
 //helper functions
+////create next challenge
 function createChallenge(challenges, miniChallengeScreen) {
     //first design challenge for normal seasons
     if (currentCast.length == totalCastSize && top3 && s6Premiere == false || currentCast.length == totalCastSize && top4 && s6Premiere == false || currentCast.length == totalCastSize && team || sweatshop || currentCast == firstCast && s6Premiere || currentCast == secondCast && s6Premiere)
