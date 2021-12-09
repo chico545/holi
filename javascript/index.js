@@ -625,6 +625,103 @@ function createChallenge(challenges, miniChallengeScreen) {
         }
     }
 }
+////create performance descriptions
+function createPerformanceDesc(slay, great, good, bad, flop) {
+    var screen = new Scene();
+    if (slay.length !== 0) {
+        for (var i = 0; i < slay.length; i++)
+            screen.createImage(slay[i].image, "darkblue");
+        screen.createBold("", "slay");
+        var slayText = document.getElementById("slay");
+        for (var i = 0; i < slay.length; i++)
+            slayText.innerHTML += slay[i].getName() + ", ";
+        slayText.innerHTML += "slayed the challenge!";
+    }
+    if (great.length !== 0) {
+        for (var i = 0; i < great.length; i++)
+            screen.createImage(great[i].image, "royalblue");
+        screen.createBold("", "great");
+        var greatText = document.getElementById("great");
+        for (var i = 0; i < great.length; i++)
+            greatText.innerHTML += great[i].getName() + ", ";
+        greatText.innerHTML += "had a great performance!";
+    }
+    if (good.length !== 0) {
+        for (var i = 0; i < good.length; i++)
+            screen.createImage(good[i].image);
+        screen.createBold("", "good");
+        var goodText = document.getElementById("good");
+        for (var i = 0; i < good.length; i++)
+            goodText.innerHTML += good[i].getName() + ", ";
+        goodText.innerHTML += "had a good performance.";
+    }
+    if (bad.length !== 0) {
+        for (var i = 0; i < bad.length; i++)
+            screen.createImage(bad[i].image, "pink");
+        screen.createBold("", "bad");
+        var badText = document.getElementById("bad");
+        for (var i = 0; i < bad.length; i++)
+            badText.innerHTML += bad[i].getName() + ", ";
+        badText.innerHTML += "had a bad performance...";
+    }
+    if (flop.length !== 0) {
+        for (var i = 0; i < flop.length; i++)
+            screen.createImage(flop[i].image, "tomato");
+        screen.createBold("", "flop");
+        var flopText = document.getElementById("flop");
+        for (var i = 0; i < flop.length; i++)
+            flopText.innerHTML += flop[i].getName() + ", ";
+        flopText.innerHTML += "flopped the challenge...";
+    }
+}
+function createRunwayDesc(slay, great, good, bad) {
+    var screen = new Scene();
+    if (slay.length !== 0) {
+        for (var i = 0; i < slay.length; i++) {
+            screen.createImage(slay[i].image, "darkblue");
+            slay[i].runwayScore = 10;
+        }
+        screen.createBold("", "slayR");
+        var slayText = document.getElementById("slayR");
+        for (var i = 0; i < slay.length; i++)
+            slayText.innerHTML += slay[i].getName() + ", ";
+        slayText.innerHTML += "slayed the runway!";
+    }
+    if (great.length !== 0) {
+        for (var i = 0; i < great.length; i++) {
+            screen.createImage(great[i].image, "royalblue");
+            great[i].runwayScore = 5;
+        }
+        screen.createBold("", "greatR");
+        var greatText = document.getElementById("greatR");
+        for (var i = 0; i < great.length; i++)
+            greatText.innerHTML += great[i].getName() + ", ";
+        greatText.innerHTML += "had a great runway!";
+    }
+    if (good.length !== 0) {
+        for (var i = 0; i < good.length; i++) {
+            screen.createImage(good[i].image);
+            good[i].runwayScore = 0;
+        }
+        screen.createBold("", "goodR");
+        var goodText = document.getElementById("goodR");
+        for (var i = 0; i < good.length; i++)
+            goodText.innerHTML += good[i].getName() + ", ";
+        goodText.innerHTML += "had a good runway.";
+    }
+    if (bad.length !== 0) {
+        for (var i = 0; i < bad.length; i++) {
+            screen.createImage(bad[i].image, "pink");
+            bad[i].runwayScore = -3;
+        }
+        screen.createBold("", "badR");
+        var badText = document.getElementById("badR");
+        for (var i = 0; i < bad.length; i++)
+            badText.innerHTML += bad[i].getName() + ", ";
+        badText.innerHTML += "had a bad runway...";
+    }
+}
+
 var customCast = [];
 function addQueen() {
     var name = document.getElementById("queenName").value;
@@ -747,10 +844,14 @@ function randomizeStats() {
         stats[i].value = randomNumber(0, 15).toString();
     }
 }
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 var premiereCounter = 0;
 var firstCast = [];
@@ -760,7 +861,7 @@ function doublePremiere() {
         if (s6Premiere || s12Premiere) {
             shuffle(currentCast);
             firstCast = currentCast.splice(0, Math.floor(currentCast.length / 2));
-            secondCast = __spreadArray([], currentCast);
+            secondCast = __spreadArray([], currentCast, true);
         }
     if (premiereCounter == 0) {
         currentCast = firstCast;
