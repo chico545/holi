@@ -1226,11 +1226,14 @@ function contestantProgress() {
     var winner = document.createElement("tr");
     var name = document.createElement("td");
     name.setAttribute("style", "background-color: #f5ebf5; font-weight: bold; height: 100px;");
-    var winnerQueen;
-    if (!top4)
-        winnerQueen = currentCast[0];
-    else
+    if (onFinale) {
+        var winnerQueen = void 0;
+        if (!top4)
+            winnerQueen = currentCast[0];
+        else if (onTop4Finale)
         winnerQueen = finalLS[0];
+        else
+            winnerQueen = currentCast[0];
     name.innerHTML = winnerQueen.getName();
     winner.appendChild(name);
     if (!custommode) {
@@ -1238,7 +1241,7 @@ function contestantProgress() {
         photow.setAttribute("style", "background: url("+ winnerQueen.getImg() +"); background-size: 106px 106px; background-position: center;");
         winner.appendChild(photow);
     }
-    for (var i = 0; i < winnerQueen.trackRecord.length+1; i++) {
+        for (var i = 0; i < winnerQueen.trackRecord.length; i++) {
         var placement = document.createElement("td");
         placement.innerHTML = winnerQueen.trackRecord[i];
         if (placement.innerHTML == "WIN") {
@@ -1322,22 +1325,25 @@ function contestantProgress() {
         else if (placement.innerHTML == "undefined") {
                 placement.setAttribute("style", "font-weight: bold; background-color: lightgray;");
                 placement.innerHTML = winnerQueen.favoritism - winnerQueen.unfavoritism;
-        }
+            }
         winner.appendChild(placement);
     }
     trackRecords.appendChild(winner);
-    for (var i = 0; i < eliminatedCast.length; i++) {
+
+   }
+    if (!onFinale) {
+        for (var i = 0; i < currentCast.length; i++) {
         var contestant = document.createElement("tr");
         var name_1 = document.createElement("td");
         name_1.setAttribute("style", "background-color: #f5ebf5; font-weight: bold;  height: 100px;");
-        name_1.innerHTML = eliminatedCast[i].getName();
+        name_1.innerHTML = currentCast[i].getName();
         contestant.appendChild(name_1);
         if (!custommode) {
             var photo = document.createElement("td");
             photo.setAttribute("style", "background: url("+ eliminatedCast[i].getImg() +"); background-size: 106px 106px; background-position: center;");
             contestant.appendChild(photo);
         }
-        for (var k = 0; k < eliminatedCast[i].trackRecord.length+1; k++) {
+            for (var k = 0; k < currentCast[i].trackRecord.length; k++) {
             var placement = document.createElement("td");
             placement.innerHTML = eliminatedCast[i].trackRecord[k];
             if (placement.innerHTML == "WIN") {
@@ -1418,10 +1424,11 @@ function contestantProgress() {
             else if (placement.innerHTML == "undefined") {
                 placement.setAttribute("style", "font-weight: bold; background-color: lightgray;");
                 placement.innerHTML = eliminatedCast[i].favoritism - eliminatedCast[i].unfavoritism;
+                }
+                contestant.appendChild(placement);
             }
-            contestant.appendChild(placement);
+            trackRecords.appendChild(contestant);
         }
-        trackRecords.appendChild(contestant);
     }
     centering.appendChild(trackRecords);
     if (porkchopPremiere) {
@@ -1461,6 +1468,7 @@ function contestantProgress() {
                 porkchopl.appendChild(contestantpl);
                 linea=1;
                 }
+    }
             }
             namep.setAttribute("style", "background-color: #f5ebf5; font-weight: bold;");
             namep.innerHTML = porkylip[i].getName();
@@ -1538,9 +1546,11 @@ function contestantProgress() {
         }
     main.appendChild(centering);
     //main.appendChild(trackRecords);
-    screen.createButton("Simulate again!", "reSimulate()");
-    screen.createHorizontalLine();
-    screen.createButton("Back to main page", "location.reload()");
+    if (onFinale) {
+        screen.createButton("Simulate again!", "reSimulate()");
+        screen.createHorizontalLine();
+        screen.createButton("Back to main page", "location.reload()");
+    }
 }
 var __spreadArray = (this && this.__spreadArray) || function (to, from) {
     for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
