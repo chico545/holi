@@ -760,7 +760,9 @@ function removeQueen() {
     }
     list.options[list.selectedIndex].remove();
 }
+var custommode = false;
 function customStartSimulation() {
+        custommode = true;
     if (customCast.length == 0) {
         window.alert("Your cast is empty!");
         return;
