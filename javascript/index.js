@@ -1346,7 +1346,7 @@ function contestantProgress() {
         contestant.appendChild(name_1);
         if (!custommode) {
             var photo = document.createElement("td");
-            photo.setAttribute("style", "background: url("+ currentCast[i].getImg(), eliminatedCast[i].getImg() +"); background-size: 106px 106px; background-position: center;");
+            photo.setAttribute("style", "background: url("+ currentCast[i].getImg() +"); background-size: 106px 106px; background-position: center;");
             contestant.appendChild(photo);
         }
             for (var k = 0; k < currentCast[i].trackRecord.length; k++) {
@@ -1442,6 +1442,11 @@ function contestantProgress() {
         name_2.setAttribute("style", "font-weight: bold;");
         name_2.innerHTML = eliminatedCast[i].getName();
         contestant.appendChild(name_2);
+        if (!custommode) {
+            var photo = document.createElement("td");
+            photo.setAttribute("style", "background: url("+ eliminatedCast[i].getImg() +"); background-size: 106px 106px; background-position: center;");
+            contestant.appendChild(photo);
+        }        
         for (var k = 0; k < eliminatedCast[i].trackRecord.length; k++) {
             var placement = document.createElement("td");
             placement.innerHTML = eliminatedCast[i].trackRecord[k];
