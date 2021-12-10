@@ -1529,6 +1529,11 @@ function contestantProgress() {
         trackRecords.appendChild(contestant);
     }
     main.appendChild(trackRecords);
+    if (onFinale) {
+    screen.createButton("Simulate again!", "reSimulate()");
+    screen.createHorizontalLine();
+    screen.createButton("Back to main page", "location.reload()");
+    }
     centering.appendChild(trackRecords);
     if (porkchopPremiere) {
         var title = document.createElement("big");
@@ -1644,17 +1649,7 @@ function contestantProgress() {
         }
     main.appendChild(centering);
     //main.appendChild(trackRecords);
-    if (onFinale) {
-    screen.createButton("Simulate again!", "reSimulate()");
-    screen.createHorizontalLine();
-    screen.createButton("Back to main page", "location.reload()");
-    }
 }
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
-};
 var totalCastSize;
 function randomNumber(min, max) {
     var randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
