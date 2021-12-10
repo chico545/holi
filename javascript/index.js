@@ -1249,68 +1249,68 @@ function contestantProgress() {
         winner.appendChild(photow);
     }
         for (var i = 0; i < winnerQueen.trackRecord.length; i++) {
-        var placement = document.createElement("td");
-        placement.innerHTML = winnerQueen.trackRecord[i];
-        if (placement.innerHTML == "WIN") {
-            placement.setAttribute("style", "font-weight: bold; background-color: royalblue; color: #000;");
-        }
-        else if (placement.innerHTML == "TOP2") {
-            placement.setAttribute("style", "background-color: deepskyblue;");
-        }
-        else if (placement.innerHTML == "LOW") {
-            placement.setAttribute("style", "background-color: pink;");
-        }
-        else if (placement.innerHTML == "HIGH") {
-            placement.setAttribute("style", "background-color: lightblue;");
-        }
-        else if (placement.innerHTML == "BTM2" || placement.innerHTML == "BTM3" || placement.innerHTML == "BTM4" || placement.innerHTML == "BTM5") {
-            placement.setAttribute("style", "background-color: tomato;");
-        }
-        else if (placement.innerHTML == "ELIM") {
-            placement.setAttribute("style", "font-weight: bold; background-color: red;");
-        }
-        else if (placement.innerHTML == "WINNER") {
-            placement.setAttribute("style", "font-weight: bold; background-color: yellow;");
-        }
-        else if (placement.innerHTML == "RUNNER-UP") {
-            placement.setAttribute("style", "font-weight: bold; background-color: silver;");
-        }
-        else if (placement.innerHTML == "ELIMINATED") {
-            placement.setAttribute("style", "font-weight: bold; background-color: sienna;");
-        }
-        else if (placement.innerHTML == "LOST 1ST ROUND") {
-            placement.setAttribute("style", "font-weight: bold; background-color: #FF7C00;");
-        }
-        else if (placement.innerHTML == "LOST 2ND ROUND") {
-            placement.setAttribute("style", "font-weight: bold; background-color: #FFAE00;");
-        }
-        else if (placement.innerHTML == "") {
-            placement.setAttribute("style", "background-color: gray");
-        }
-        else if (placement.innerHTML == "WIN ") {
-            placement.setAttribute("style", "font-weight: bold; background-color: cyan;");
-        }
-        else if (placement.innerHTML == "SAFE") {
-            placement.setAttribute("style", "background-color: white;");
-        }
-        else if (placement.innerHTML == "SAFE ") {
+            var placement = document.createElement("td");
+            placement.innerHTML = winnerQueen.trackRecord[i];
+            if (placement.innerHTML == "WIN") {
+                placement.setAttribute("style", "font-weight: bold; background-color: royalblue; color: #000;");
+            }
+            else if (placement.innerHTML == "TOP2") {
+                placement.setAttribute("style", "background-color: deepskyblue;");
+            }
+            else if (placement.innerHTML == "LOW") {
+                placement.setAttribute("style", "background-color: pink;");
+            }
+            else if (placement.innerHTML == "HIGH") {
+                placement.setAttribute("style", "background-color: lightblue;");
+            }
+            else if (placement.innerHTML == "BTM2" || placement.innerHTML == "BTM3" || placement.innerHTML == "BTM4" || placement.innerHTML == "BTM5") {
+                placement.setAttribute("style", "background-color: tomato;");
+            }
+            else if (placement.innerHTML == "ELIM") {
+                placement.setAttribute("style", "font-weight: bold; background-color: red;");
+            }
+            else if (placement.innerHTML == "WINNER") {
+                placement.setAttribute("style", "font-weight: bold; background-color: yellow;");
+            }
+            else if (placement.innerHTML == "RUNNER-UP") {
+                placement.setAttribute("style", "font-weight: bold; background-color: silver;");
+            }
+            else if (placement.innerHTML == "ELIMINATED") {
+                placement.setAttribute("style", "font-weight: bold; background-color: sienna;");
+            }
+            else if (placement.innerHTML == "LOST 1ST ROUND") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #FF7C00;");
+            }
+            else if (placement.innerHTML == "LOST 2ND ROUND") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #FFAE00;");
+            }
+            else if (placement.innerHTML == "") {
+                placement.setAttribute("style", "background-color: gray");
+            }
+            else if (placement.innerHTML == "WIN ") {
+                placement.setAttribute("style", "font-weight: bold; background-color: cyan;");
+            }
+            else if (placement.innerHTML == "SAFE") {
+                placement.setAttribute("style", "background-color: white;");
+            }
+            else if (placement.innerHTML == "SAFE ") {
                 placement.setAttribute("style", "background-color: palegreen; color:#000;");
-        }
-        else if (placement.innerHTML == " SAFE ") {
+            }
+            else if (placement.innerHTML == " SAFE ") {
                 placement.setAttribute("style", "background-color: #7D1935; color:#000;");
-        }
-        else if (placement.innerHTML == "RUN") {
+            }
+            else if (placement.innerHTML == "RUN") {
                 placement.setAttribute("style", "background-color: magenta; color:white;");
-        }
-        else if (placement.innerHTML == "RUN ") {
+            }
+            else if (placement.innerHTML == "RUN ") {
                 placement.setAttribute("style", "background-color: #D3FFB5; color:#000; font-weight: bold;");
-        }
-        else if (placement.innerHTML == "OUT ") {
+            }
+            else if (placement.innerHTML == "OUT ") {
                 placement.setAttribute("style", "background-color: purple; color:white;");
-        }
-        else if (placement.innerHTML == "OUT ") {
+            }
+            else if (placement.innerHTML == "OUT ") {
                 placement.setAttribute("style", "background-color: purple; color:white;");
-        }
+            }
             else if (placement.innerHTML == " WIN") {
                 placement.setAttribute("style", "font-weight: bold; background-color: darkblue; color: white;");
             }
@@ -1318,16 +1318,16 @@ function contestantProgress() {
                 placement.setAttribute("style", "font-weight: bold; background-color: black; color: white;");
             }
             else if (placement.innerHTML == "RTRN") {
-            placement.setAttribute("style", "font-weight: bold; background-color: magenta;");
+                placement.setAttribute("style", "font-weight: bold; background-color: magenta;");
             }
             else if (placement.innerHTML == "RTRN ") {
-            placement.setAttribute("style", "font-weight: bold; background-color: orange;");
+                placement.setAttribute("style", "font-weight: bold; background-color: orange;");
             }
             else if (placement.innerHTML == " WIN ") {
-            placement.setAttribute("style", "background-color: lightskyblue;");
+                placement.setAttribute("style", "background-color: lightskyblue;");
             }
             else if (placement.innerHTML == "LOSS") {
-            placement.setAttribute("style", "background-color: #ff9e9e;");
+                placement.setAttribute("style", "background-color: #ff9e9e;");
             }
             else if (placement.innerHTML == "undefined") {
                 placement.setAttribute("style", "font-weight: bold; background-color: lightgray;");
