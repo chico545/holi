@@ -1439,7 +1439,7 @@ function contestantProgress() {
     for (var i = 0; i < eliminatedCast.length; i++) {
         var contestant = document.createElement("tr");
         var name_2 = document.createElement("td");
-        name_2.setAttribute("style", "font-weight: bold;");
+        name_2.setAttribute("style", "background-color: #f5ebf5; font-weight: bold;  height: 100px;");
         name_2.innerHTML = eliminatedCast[i].getName();
         contestant.appendChild(name_2);
         if (!custommode) {
