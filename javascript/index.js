@@ -1429,7 +1429,7 @@ function contestantProgress() {
                 }
                 else if (placement.innerHTML == "undefined") {
                     placement.setAttribute("style", "font-weight: bold; background-color: lightgray;");
-                    placement.innerHTML = eliminatedCast[i].favoritism - eliminatedCast[i].unfavoritism;
+                    placement.innerHTML = currentCast[i].favoritism - currentCast[i].unfavoritism;
                 }
                 contestant.appendChild(placement);
             }
