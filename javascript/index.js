@@ -891,7 +891,7 @@ function doublePremiereJudging() {
     topQueens[0].addToTrackRecord("WIN");
     topQueens[0].favoritism += 5;
     topQueens[1].addToTrackRecord("TOP2");
-    topQueens[1].favoritism += 3;
+    topQueens[1].favoritism += 2;
     screen.createButton("Proceed", "doublePremiere()");
 }
 var currentCast = [];
@@ -2191,6 +2191,7 @@ function topAndBtm() {
         topQueens[i].performanceScore -= (topQueens[i].runwayScore - topQueens[i].favoritism);
     topQueens.sort(function (a, b) { return (a.performanceScore - b.performanceScore); });
     top2.push(topQueens[0]);
+    top2[0].favoritism += 5;
     topQueens.splice(0, 1);
     screen.createBold(top2[0].getName() + ", condragulations, you're the Top All Star of the week!");
     screen.createParagraph("", "highs");
@@ -2271,9 +2272,9 @@ function lipSync() {
     if (score1 > 7 && score2 > 7 && randomNumber(0, 100) <= 50 && !doubleShantay && noDouble == false && currentCast.length > 5) {
         screen.createBold("Condragulations, shantay you both stay!!");
         bottomQueens[0].addToTrackRecord("BTM2");
-        bottomQueens[0].unfavoritism += 3;
+        bottomQueens[0].unfavoritism += 5;
         bottomQueens[1].addToTrackRecord("BTM2");
-        bottomQueens[1].unfavoritism += 3;
+        bottomQueens[1].unfavoritism += 5;
         doubleShantay = true;
     }
     else if (score1 < 4 && score2 < 4 && randomNumber(0, 100) <= 10 && !doubleSashay && currentCast.length > 5 && noDouble == false) {
@@ -2292,9 +2293,9 @@ function lipSync() {
         var disqualifiedQueen = currentCast[randomNumber(0, currentCast.length - 1)];
         screen.createBold(disqualifiedQueen.getName() + ", it has come to my attention that you have broken the rules of this competition. I must ask you to sashay away.");
         bottomQueens[0].addToTrackRecord("BTM2");
-        bottomQueens[0].unfavoritism += 3;
+        bottomQueens[0].unfavoritism += 5;
         bottomQueens[1].addToTrackRecord("BTM2");
-        bottomQueens[1].unfavoritism += 3;
+        bottomQueens[1].unfavoritism += 5;
         disqualifiedQueen.trackRecord.pop();
         disqualifiedQueen.addToTrackRecord("DISQ");
         eliminatedCast.unshift(disqualifiedQueen);
@@ -2306,7 +2307,7 @@ function lipSync() {
         bottomQueens[0].unfavoritism += 3;
         screen.createBold(bottomQueens[1].getName() + ", sashay away...");
         bottomQueens[1].addToTrackRecord("ELIM");
-        bottomQueens[1].unfavoritism += 5;
+        bottomQueens[1].unfavoritism += 3;
         eliminatedCast.unshift(bottomQueens[1]);
         currentCast.splice(currentCast.indexOf(bottomQueens[1]), 1);
     }
@@ -2486,7 +2487,7 @@ function lsaLipSync() {
         }
         else{
             bottomQueens[i].addToTrackRecord("BTM2");
-            bottomQueens[i].unfavoritism += 3;
+            bottomQueens[i].unfavoritism += 2;
         }
         bottomQueens[i].votes = 0;
     }
