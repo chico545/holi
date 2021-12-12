@@ -2028,7 +2028,7 @@ function winAndBtm2() {
         topQueens[i].performanceScore -= (topQueens[i].runwayScore - topQueens[i].favoritism);
     topQueens.sort(function (a, b) { return (a.performanceScore - b.performanceScore); });
     //double win:
-    if (topQueens[0].performanceScore == topQueens[1].performanceScore && randomNumber(0, 100) < 80) {
+    if (topQueens[0].performanceScore == topQueens[1].performanceScore && randomNumber(0, 100) < 60) {
         topQueens[0].addToTrackRecord(" WIN");
         topQueens[0].favoritism += 5;
         topQueens[1].addToTrackRecord(" WIN");
