@@ -3014,7 +3014,7 @@ var allQueens = [
     anita, art, cocoj, elektra, etc, jojo, karen, kita, maxi,
     arantxa, carmenf, dovima, drag, hugaceo, inti, killer, pupi, sagittaria, macarena,
     aurora, cpher, elektravandergeld, georgiana, irisxc, lacarrera, leexafox, lupita, morralisa, papercut, rebelmork, sirena, tiresias, veracruz,
-    church, dyslexiella, galore, kamiya, moreau, parishx, paulisqueen, plastiq, rubberdoll, sadtanas, satinz, serenavw, witchlolita
+    church, dyslexiella, galore, kamiya, moreau, parishx, paulisqueen, plastiq, rubberdoll, sadtanas, satinz, serenavw, witchlolita,
     ava, divinity, bionic, enorma, farida, ivana, riche, luquisha,
     amadiva, annee, b, bunny, dearis, jaja, meannie, morrigan, natalia, petchra,
     angele, bandit, genie, kana, kandyz, katy, m, maya, mocha, gimhuay, silver, srimala, tormai, vanda,
