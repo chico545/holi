@@ -3690,7 +3690,7 @@ function teamsScreen() {
         currentCast.splice(currentCast.indexOf(QueenA), 1);
         currentCast.splice(currentCast.indexOf(QueenB), 1);
     }
-    currentCast = __spreadArray([], teamList);
+    currentCast = __spreadArray([], teamList, true);
     totalCastSize = currentCast.length;
     screen.createButton("Proceed", "miniChallenge()");
 }
