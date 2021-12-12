@@ -2948,7 +2948,7 @@ var sagittaria = new Queen("Sagittaria", 7, 8, 9, 9, 8, 10, 8, "img/ES1/Sagittar
 var macarena = new Queen("The Macarena", 6, 7, 6, 5, 5, 7, 7, "img/ES1/TheMacarenaDRE1Cast.jpg");
 var dres = [arantxa, carmenf, dovima, drag, hugaceo, inti, killer, pupi, sagittaria, macarena];
 //LA MAS DRAGA
-var aurora = new Queen("Aurora Wonders", 6, 6, 6, 7, 2, 7, 7, "img/LMD4/AuroraWondersLMD4CastMug.jpg");
+var aurora = new Queen("Aurora Wonders", 6, 6, 6, 7, 2, 7, 7, "img/Haddoz/DyslexiellaHaddoz.jpg");
 var cpher = new Queen("Cpher", 7, 5, 10, 13, 7, 14, 9, "img/LMD4/C-PherLMD4CastMug.jpg");
 var elektravandergeld = new Queen("Elektra Vandergeld", 7, 8, 11, 11, 8, 11, 11, "img/LMD4/ElektraVandergeldLMD4CastMug.jpg");
 var georgiana = new Queen("Georgiana", 7, 7, 8, 10, 10, 11, 9, "img/LMD4/GeorgianaLMD4CastMug.jpg");
