@@ -2976,8 +2976,9 @@ var rubberdoll = new Queen("RubberDoll", 8, 5, 8, 11, 10, 10, 7, "img/Haddoz/Rub
 var sadtanas = new Queen("Sadtanas", 6, 6, 5, 6, 5, 6, 7, "img/Haddoz/SadtanasHaddoz.jpg");
 var satinz = new Queen("Satinz", 7, 7, 6, 6, 6, 6, 6, "img/Haddoz/SatinzHaddoz.jpg");
 var serenavw = new Queen("SerenaVW", 9, 10, 10, 7, 7, 9, 11, "img/Haddoz/SerenaVWHaddoz.jpg");
+var sorn = new Queen("Sorn", 5, 4, 5, 6, 5, 10, 7, "img/Haddoz/SornHaddoz.jpg");
 var witchlolita = new Queen("Witchlolita", 7, 6, 8, 14, 11, 14, 10, "img/Haddoz/WitchlolitaHaddoz.jpg");
-var haddoz = [church, dyslexiella, galore, kamiya, moreau, parishx, paulisqueen, plastiq, rubberdoll, sadtanas, satinz, serenavw, witchlolita];
+var haddoz = [church, dyslexiella, galore, kamiya, moreau, parishx, paulisqueen, plastiq, rubberdoll, sadtanas, satinz, serenavw, sorn, witchlolita];
 //DRAG RACE ITALIA
 var ava = new Queen("Ava Hangar", 8, 7, 8, 6, 8, 7, 8, "img/ITA1/AvaHangarDRI1Cast.jpg");
 var divinity = new Queen("Divinity", 8, 7, 8, 7, 8, 7, 8, "img/ITA1/DivinityDRI1Cast.jpg");
@@ -3014,7 +3015,7 @@ var allQueens = [
     anita, art, cocoj, elektra, etc, jojo, karen, kita, maxi,
     arantxa, carmenf, dovima, drag, hugaceo, inti, killer, pupi, sagittaria, macarena,
     aurora, cpher, elektravandergeld, georgiana, irisxc, lacarrera, leexafox, lupita, morralisa, papercut, rebelmork, sirena, tiresias, veracruz,
-    church, dyslexiella, galore, kamiya, moreau, parishx, paulisqueen, plastiq, rubberdoll, sadtanas, satinz, serenavw, witchlolita,
+    church, dyslexiella, galore, kamiya, moreau, parishx, paulisqueen, plastiq, rubberdoll, sadtanas, satinz, serenavw, sorn, witchlolita,
     ava, divinity, bionic, enorma, farida, ivana, riche, luquisha,
     amadiva, annee, b, bunny, dearis, jaja, meannie, morrigan, natalia, petchra,
     angele, bandit, genie, kana, kandyz, katy, m, maya, mocha, gimhuay, silver, srimala, tormai, vanda,
