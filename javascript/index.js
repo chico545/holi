@@ -2948,7 +2948,7 @@ var sagittaria = new Queen("Sagittaria", 7, 8, 9, 9, 8, 10, 8, "img/ES1/Sagittar
 var macarena = new Queen("The Macarena", 6, 7, 6, 5, 5, 7, 7, "img/ES1/TheMacarenaDRE1Cast.jpg");
 var dres = [arantxa, carmenf, dovima, drag, hugaceo, inti, killer, pupi, sagittaria, macarena];
 //LA MAS DRAGA
-var aurora = new Queen("Aurora Wonders", 6, 6, 6, 7, 2, 7, 7, "img/Haddoz/DyslexiellaHaddoz.jpg");
+var aurora = new Queen("Aurora Wonders", 6, 6, 6, 7, 2, 7, 7, "img/LMD4/AuroraWondersCastMug.jpg");
 var cpher = new Queen("Cpher", 7, 5, 10, 13, 7, 14, 9, "img/LMD4/C-PherLMD4CastMug.jpg");
 var elektravandergeld = new Queen("Elektra Vandergeld", 7, 8, 11, 11, 8, 11, 11, "img/LMD4/ElektraVandergeldLMD4CastMug.jpg");
 var georgiana = new Queen("Georgiana", 7, 7, 8, 10, 10, 11, 9, "img/LMD4/GeorgianaLMD4CastMug.jpg");
@@ -2963,6 +2963,21 @@ var sirena = new Queen("Sirena", 8, 8, 9, 11, 7, 11, 9, "img/LMD4/SirenaLMD4Cast
 var tiresias = new Queen("Tiresias", 7, 6, 7, 6, 6, 8, 9, "img/LMD4/TiresiasLMD4CastMug.jpg");
 var veracruz = new Queen("Veracruz", 9, 9, 9, 10, 12, 12, 7, "img/LMD4/VeraCruzLMD4CastMug.jpg");
 var lmd = [aurora, cpher, elektravandergeld, georgiana, irisxc, lacarrera, leexafox, lupita, morralisa, papercut, rebelmork, sirena, tiresias, veracruz];
+// HADDOZ SEASON
+var church = new Queen("Church", 7, 6, 7, 9, 7, 8, 9, "img/Haddoz/ChurchHaddoz.jpg");
+var dyslexiella = new Queen("Dyslexiella", 10, 8, 10, 15, 13, 15, 11, "img/Haddoz/DyslexiellaHaddoz.jpg");
+var galore = new Queen("Galore, 7, 9, 8, 5, 10, 7, 9, ""img/Haddoz/GaloreHaddoz.jpg");
+var kamiya = new Queen("Kamiya", 5, 6, 5, 4, 6, 4, 5, "img/Haddoz/KamiyaHaddoz.jpg");
+var moreau = new Queen("Moreau", 10, 9, 7, 7, 5, 7, 9, "img/Haddoz/MoreauHaddoz.jpg");
+var parishx = new Queen("ParisHX", 8, 8, 7, 9, 8, 8, 9, "img/Haddoz/ParisHXHaddoz.jpg");
+var paulisqueen = new Queen("PaulisQueen", 5, 3, 6, 6, 2, 4, 4, "img/Haddoz/PaulisQueenHaddoz.jpg");
+var plastiq = new Queen("Plastiq", 9, 5, 5, 6, 8, 8, 10, "img/Haddoz/PlastiqHaddoz.jpg");
+var rubberdoll = new Queen("RubberDoll", 8, 5, 8, 11, 10, 10, 7, "img/Haddoz/RubberDollHaddoz.jpg");
+var sadtanas = new Queen("Sadtanas", 6, 6, 5, 6, 5, 6, 7, "img/Haddoz/SadtanasHaddoz.jpg");
+var satinz = new Queen("Satinz", 7, 7, 6, 6, 6, 6, 6, "img/Haddoz/SatinzHaddoz.jpg");
+var serenavw = new Queen("SerenaVW", 9, 10, 10, 7, 7, 9, 11, "img/Haddoz/SerenaVWHaddoz.jpg");
+var witchlolita = new Queen("Witchlolita", 8, 7, 9, 15, 12, 15, 10, "img/Haddoz/WitchlolitaHaddoz.jpg");
+var haddoz = [church, dyslexiella, galore, kamiya, moreau, parishx, paulisqueen, plastiq, rubberdoll, sadtanas, satinz, serenavw, witchlolita];
 //DRAG RACE ITALIA
 var ava = new Queen("Ava Hangar", 8, 7, 8, 6, 8, 7, 8, "img/ITA1/AvaHangarDRI1Cast.jpg");
 var divinity = new Queen("Divinity", 8, 7, 8, 7, 8, 7, 8, "img/ITA1/DivinityDRI1Cast.jpg");
@@ -2999,6 +3014,7 @@ var allQueens = [
     anita, art, cocoj, elektra, etc, jojo, karen, kita, maxi,
     arantxa, carmenf, dovima, drag, hugaceo, inti, killer, pupi, sagittaria, macarena,
     aurora, cpher, elektravandergeld, georgiana, irisxc, lacarrera, leexafox, lupita, morralisa, papercut, rebelmork, sirena, tiresias, veracruz,
+    church, dyslexiella, galore, kamiya, moreau, parishx, paulisqueen, plastiq, rubberdoll, sadtanas, satinz, serenavw, witchlolita
     ava, divinity, bionic, enorma, farida, ivana, riche, luquisha,
     amadiva, annee, b, bunny, dearis, jaja, meannie, morrigan, natalia, petchra,
     angele, bandit, genie, kana, kandyz, katy, m, maya, mocha, gimhuay, silver, srimala, tormai, vanda,
