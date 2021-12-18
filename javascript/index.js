@@ -1248,7 +1248,7 @@ function contestantProgress() {
         photow.setAttribute("style", "background: url("+ winnerQueen.getImg() +"); background-size: 106px 106px; background-position: center;");
         winner.appendChild(photow);
     }
-        for (var i = 0; i < winnerQueen.trackRecord.length; i++) {
+        for (var i = 0; i < winnerQueen.trackRecord.length+1; i++) {
             var placement = document.createElement("td");
             placement.innerHTML = winnerQueen.trackRecord[i];
             if (placement.innerHTML == "WIN") {
@@ -1349,7 +1349,7 @@ function contestantProgress() {
             photo.setAttribute("style", "background: url("+ currentCast[i].getImg() +"); background-size: 106px 106px; background-position: center;");
             contestant.appendChild(photo);
         }
-            for (var k = 0; k < currentCast[i].trackRecord.length; k++) {
+            for (var k = 0; k < currentCast[i].trackRecord.length+1; k++) {
                 var placement = document.createElement("td");
                 placement.innerHTML = currentCast[i].trackRecord[k];
             if (placement.innerHTML == "WIN") {
@@ -1447,7 +1447,7 @@ function contestantProgress() {
             photo.setAttribute("style", "background: url("+ eliminatedCast[i].getImg() +"); background-size: 106px 106px; background-position: center;");
             contestant.appendChild(photo);
         }        
-        for (var k = 0; k < eliminatedCast[i].trackRecord.length; k++) {
+        for (var k = 0; k < eliminatedCast[i].trackRecord.length+1; k++) {
             var placement = document.createElement("td");
             placement.innerHTML = eliminatedCast[i].trackRecord[k];
             if (placement.innerHTML == "WIN") {
@@ -1655,6 +1655,11 @@ function contestantProgress() {
     main.appendChild(centering);
     //main.appendChild(trackRecords);
 }
+var __spreadArray = (this && this.__spreadArray) || function (to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
+};
 var totalCastSize;
 function randomNumber(min, max) {
     var randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
