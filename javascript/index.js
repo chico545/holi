@@ -891,7 +891,7 @@ function doublePremiereJudging() {
     topQueens[0].addToTrackRecord("WIN");
     topQueens[0].favoritism += 5;
     topQueens[1].addToTrackRecord("TOP2");
-    topQueens[1].favoritism += 2;
+    topQueens[1].favoritism += 4;
     screen.createButton("Proceed", "doublePremiere()");
 }
 var currentCast = [];
@@ -2052,7 +2052,7 @@ function winAndBtm2() {
     for (var i = 0; i < topQueens.length; i++) {
         highs.innerHTML += topQueens[i].getName() + ", ";
         topQueens[i].addToTrackRecord("HIGH");
-        topQueens[i].favoritism += 1;
+        topQueens[i].favoritism += 4;
     }
     if (topQueens.length > 0)
         highs.innerHTML += "good work this week, you're safe.";
@@ -2072,8 +2072,8 @@ function winAndBtm2() {
         bottomQueens[0].addToTrackRecord("LOW");
         bottomQueens[1].addToTrackRecord("LOW");
         screen.createBold(bottomQueens[0].getName() + ", " + bottomQueens[1].getName() + "... you are safe.");
-        bottomQueens[0].unfavoritism += 1;
-        bottomQueens[1].unfavoritism += 1;
+        bottomQueens[0].unfavoritism += 2;
+        bottomQueens[1].unfavoritism += 2;
         bottomQueens.splice(0, 2);
     }
     else if (bottomQueens.length == 3) {
@@ -2082,7 +2082,7 @@ function winAndBtm2() {
         bottomQueens.sort(function (a, b) { return (a.performanceScore - b.performanceScore); });
         bottomQueens[0].addToTrackRecord("LOW");
         screen.createBold(bottomQueens[0].getName() + "... you are safe.");
-        bottomQueens[0].unfavoritism += 1;
+        bottomQueens[0].unfavoritism += 2;
         bottomQueens.splice(0, 1);
     }
     screen.createBold("", "btm2");
@@ -2109,7 +2109,7 @@ function teamWinAndBtm2() {
     if (topQueens.length > 1) {
         topQueens[1].QueenA.addToTrackRecord("HIGH");
         topQueens[1].QueenB.addToTrackRecord("HIGH");
-        topQueens[0].favoritism += 1;
+        topQueens[0].favoritism += 4;
         screen.createParagraph(topQueens[1].getName() + ", good work this week, you're safe.");
     }
     screen.createHorizontalLine();
@@ -2120,7 +2120,7 @@ function teamWinAndBtm2() {
         bottomQueens.sort(function (a, b) { return (a.performanceScore - b.performanceScore); });
         bottomQueens[0].QueenA.addToTrackRecord("LOW");
         bottomQueens[0].QueenB.addToTrackRecord("LOW");
-        bottomQueens[0].unfavoritism += 1;
+        bottomQueens[0].unfavoritism += 2;
         screen.createBold(bottomQueens[0].getName() + ", you are safe.");
         bottomQueens.splice(0, 1);
     }
@@ -2145,7 +2145,7 @@ function top2AndBtm() {
     for (var i = 0; i < topQueens.length; i++) {
         highs.innerHTML += topQueens[i].getName() + ", ";
         topQueens[i].addToTrackRecord("HIGH");
-        topQueens[i].favoritism += 1;
+        topQueens[i].favoritism += 4;
     }
     if (topQueens.length > 0)
         highs.innerHTML += "good work this week, you're safe.";
@@ -2162,14 +2162,14 @@ function top2AndBtm() {
         bottomQueens.sort(function (a, b) { return (a.performanceScore - b.performanceScore); });
         bottomQueens[0].addToTrackRecord("LOW");
         screen.createParagraph(bottomQueens[0].getName() + " ...you are safe.");
-        bottomQueens[0].unfavoritism += 1;
+        bottomQueens[0].unfavoritism += 2;
         bottomQueens.splice(bottomQueens.indexOf(bottomQueens[i]), 1);
         screen.createBold(bottomQueens[0].getName() + ", " + bottomQueens[1].getName() + ", you're up for elimination.");
         break;
         /*if (bottomQueens[i].performanceScore >= 6 && bottomQueens[i].performanceScore < 16) {
             screen.createParagraph(bottomQueens[i].getName() + ", you are safe.");
             bottomQueens[i].addToTrackRecord("LOW");
-            bottomQueens[i].unfavoritism += 1;
+            bottomQueens[i].unfavoritism += 2;
             bottomQueens.splice(bottomQueens.indexOf(bottomQueens[i]), 1);
             screen.createBold(bottomQueens[0].getName() + ", " + bottomQueens[1].getName() + ", you're up for elimination.");
           */  break;
@@ -2204,7 +2204,7 @@ function topAndBtm() {
     for (var i = 0; i < topQueens.length; i++) {
         highs.innerHTML += topQueens[i].getName() + ", ";
         topQueens[i].addToTrackRecord("HIGH");
-        topQueens[i].favoritism += 1;
+        topQueens[i].favoritism += 4;
     }
     if (topQueens.length > 0)
         highs.innerHTML += "good work this week, you're safe.";
@@ -2221,7 +2221,7 @@ function topAndBtm() {
         bottomQueens.sort(function (a, b) { return (a.performanceScore - b.performanceScore); });
         bottomQueens[0].addToTrackRecord("LOW");
         screen.createParagraph(bottomQueens[0].getName() + " ...you are safe.");
-        bottomQueens[0].unfavoritism += 1;
+        bottomQueens[0].unfavoritism += 2;
         bottomQueens.splice(bottomQueens.indexOf(bottomQueens[i]), 1);
         screen.createBold(bottomQueens[0].getName() + ", " + bottomQueens[1].getName() + ", you're up for elimination.");
         break;
