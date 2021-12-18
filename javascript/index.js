@@ -2052,7 +2052,7 @@ function winAndBtm2() {
     for (var i = 0; i < topQueens.length; i++) {
         highs.innerHTML += topQueens[i].getName() + ", ";
         topQueens[i].addToTrackRecord("HIGH");
-        topQueens[i].favoritism += 4;
+        topQueens[i].favoritism += 1;
     }
     if (topQueens.length > 0)
         highs.innerHTML += "good work this week, you're safe.";
@@ -2109,7 +2109,7 @@ function teamWinAndBtm2() {
     if (topQueens.length > 1) {
         topQueens[1].QueenA.addToTrackRecord("HIGH");
         topQueens[1].QueenB.addToTrackRecord("HIGH");
-        topQueens[0].favoritism += 4;
+        topQueens[0].favoritism += 1;
         screen.createParagraph(topQueens[1].getName() + ", good work this week, you're safe.");
     }
     screen.createHorizontalLine();
@@ -2145,7 +2145,7 @@ function top2AndBtm() {
     for (var i = 0; i < topQueens.length; i++) {
         highs.innerHTML += topQueens[i].getName() + ", ";
         topQueens[i].addToTrackRecord("HIGH");
-        topQueens[i].favoritism += 4;
+        topQueens[i].favoritism += 1;
     }
     if (topQueens.length > 0)
         highs.innerHTML += "good work this week, you're safe.";
