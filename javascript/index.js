@@ -891,7 +891,7 @@ function doublePremiereJudging() {
     topQueens[0].addToTrackRecord("WIN");
     topQueens[0].favoritism += 5;
     topQueens[1].addToTrackRecord("TOP2");
-    topQueens[1].favoritism += 2;
+    topQueens[1].favoritism += 3;
     screen.createButton("Proceed", "doublePremiere()");
 }
 var currentCast = [];
@@ -2277,9 +2277,9 @@ function lipSync() {
     if (score1 > 7 && score2 > 7 && randomNumber(0, 100) <= 50 && !doubleShantay && noDouble == false && currentCast.length > 5) {
         screen.createBold("Condragulations, shantay you both stay!!");
         bottomQueens[0].addToTrackRecord("BTM2");
-        bottomQueens[0].unfavoritism += 5;
+        bottomQueens[0].unfavoritism += 3;
         bottomQueens[1].addToTrackRecord("BTM2");
-        bottomQueens[1].unfavoritism += 5;
+        bottomQueens[1].unfavoritism += 3;
         doubleShantay = true;
     }
     else if (score1 < 4 && score2 < 4 && randomNumber(0, 100) <= 10 && !doubleSashay && currentCast.length > 5 && noDouble == false) {
@@ -2298,9 +2298,9 @@ function lipSync() {
         var disqualifiedQueen = currentCast[randomNumber(0, currentCast.length - 1)];
         screen.createBold(disqualifiedQueen.getName() + ", it has come to my attention that you have broken the rules of this competition. I must ask you to sashay away.");
         bottomQueens[0].addToTrackRecord("BTM2");
-        bottomQueens[0].unfavoritism += 5;
+        bottomQueens[0].unfavoritism += 3;
         bottomQueens[1].addToTrackRecord("BTM2");
-        bottomQueens[1].unfavoritism += 5;
+        bottomQueens[1].unfavoritism += 3;
         disqualifiedQueen.trackRecord.pop();
         disqualifiedQueen.addToTrackRecord("DISQ");
         eliminatedCast.unshift(disqualifiedQueen);
@@ -2492,7 +2492,7 @@ function lsaLipSync() {
         }
         else{
             bottomQueens[i].addToTrackRecord("BTM2");
-            bottomQueens[i].unfavoritism += 2;
+            bottomQueens[i].unfavoritism += 3;
         }
         bottomQueens[i].votes = 0;
     }
